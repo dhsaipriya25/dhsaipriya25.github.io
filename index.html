@@ -216,8 +216,45 @@ section + section { border-top: 1px solid var(--border); }
 }
 
 /* ── ABOUT ── */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-@media(max-width:760px){ .about-grid{grid-template-columns:1fr;gap:36px} }
+.about-grid { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 52px; align-items: start; }
+@media(max-width:960px){ .about-grid{grid-template-columns:240px 1fr;gap:36px} }
+@media(max-width:680px){ .about-grid{grid-template-columns:1fr;gap:32px} }
+
+.about-photo-wrap {
+  position: relative;
+}
+.about-photo-wrap::before {
+  content: '';
+  position: absolute;
+  top: 14px; left: 14px;
+  right: -14px; bottom: -14px;
+  border: 2px solid var(--indigo);
+  opacity: .2;
+  pointer-events: none;
+}
+.about-photo-wrap::after {
+  content: '';
+  position: absolute;
+  top: 7px; left: 7px;
+  right: -7px; bottom: -7px;
+  border: 1px solid var(--violet);
+  opacity: .12;
+  pointer-events: none;
+}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: 1px solid var(--border);
+  filter: grayscale(8%);
+  transition: filter .4s;
+}
+.about-photo:hover { filter: grayscale(0%); }
+@media(max-width:960px){ .about-photo-wrap{display:none} }
+@media(max-width:680px){ .about-photo-wrap{display:block} }
+
 .about-text p { font-size: 1.06rem; color: var(--muted); margin-bottom: 18px; line-height: 1.82; }
 .about-text p strong { color: var(--text); font-weight: 700; }
 .about-facts {
@@ -526,6 +563,9 @@ footer { padding: 28px 0; text-align: center; border-top: 1px solid var(--border
     <div class="sec-label reveal">01 — About</div>
     <div class="sec-title reveal">Who I am</div>
     <div class="about-grid">
+      <div class="about-photo-wrap reveal">
+        <img class="about-photo" src="Priya_image.jpg" alt="Hema Sai Priya">
+      </div>
       <div class="about-text">
         <p class="reveal">I'm a full-stack developer who gravitates toward the hard, unglamorous problems — <strong>untangling undocumented legacy logic</strong>, migrating mission-critical systems with zero downtime, and keeping production healthy through meticulous monitoring and root cause analysis.</p>
         <p class="reveal">At Cognizant, I work across the full Angular 19 / Spring Boot stack, own the automation testing strategy (JUnit 5, Testcontainers, Jest / BDD-TDD), and design <strong>LangChain + LLM pipelines</strong> for GenAI automation. I believe in clean APIs, tested code, and shipping things that actually work.</p>
@@ -536,9 +576,9 @@ footer { padding: 28px 0; text-align: center; border-top: 1px solid var(--border
         <div class="fact-row"><span class="fact-key">Current Role</span><span class="fact-val">Full Stack Developer, Cognizant</span></div>
         <div class="fact-row"><span class="fact-key">Experience</span><span class="fact-val">2.5+ years</span></div>
         <div class="fact-row"><span class="fact-key">Focus</span><span class="fact-val">Full-Stack · Testing · GenAI / LLM</span></div>
-        <div class="fact-row"><span class="fact-key">Frontend</span><span class="fact-val">Angular 19 · TypeScript · RxJS</span></div>
-        <div class="fact-row"><span class="fact-key">Backend</span><span class="fact-val">Java 17 · Spring Boot · Python</span></div>
-        <div class="fact-row"><span class="fact-key">Cloud</span><span class="fact-val">AWS · Docker · GitLab CI</span></div>
+        <div class="fact-row"><span class="fact-key">Frontend</span><span class="fact-val">Angular 19 · TypeScript </span></div>
+        <div class="fact-row"><span class="fact-key">Backend</span><span class="fact-val">Java 17 · Spring Boot · Python · Microservices</span></div>
+        <div class="fact-row"><span class="fact-key">Cloud</span><span class="fact-val">AWS</span></div>
         <div class="fact-row"><span class="fact-key">Status</span><span class="fact-val" style="color:#047857;font-weight:700">● Open to Opportunities</span></div>
       </div>
     </div>
@@ -665,7 +705,7 @@ footer { padding: 28px 0; text-align: center; border-top: 1px solid var(--border
       <div class="skill-col reveal"><h3>Frontend</h3><ul><li>Angular v14–v19+</li><li>HTML5 · CSS3</li><li>Bootstrap</li></ul></div>
       <div class="skill-col reveal"><h3>Backend</h3><ul><li>Spring Boot</li><li>Spring Security</li><li>RESTful APIs</li><li>Spring Batch</li><li>Microservices</li></ul></div>
       <div class="skill-col reveal"><h3>Testing</h3><ul><li>JUnit 5</li><li>Testcontainers</li></ul></div>
-      <div class="skill-col reveal"><h3>Databases</h3><ul><li>Oracle DB · PostgreSQL</li><li>MS SQL Server</li><li>Stored Procedures</li><li>OpenAPI / Swagger</li></ul></div>
+      <div class="skill-col reveal"><h3>Databases</h3><ul><li>Oracle DB · PostgreSQL</li><li>MS SQL Server</li><li>Stored Procedures</li><li>PL/SQL</li></ul></div>
       <div class="skill-col reveal"><h3>DevOps &amp; Cloud</h3><ul><li>GitLab</li><li>Docker</li><li>AWS (EC2, S3, Bedrock)</li><li>AWS Transcribe</li></ul></div>
       <div class="skill-col reveal"><h3>GenAI / LLM</h3><ul><li>LangChain · LangGraph</li><li>Prompt Engineering</li><li>RAG · LLM Integration</li><li>AI Automation</li><li>Agents</li></ul></div>
     </div>
